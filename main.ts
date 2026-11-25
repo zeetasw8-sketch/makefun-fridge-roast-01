@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 const repoRoot = dirname(fileURLToPath(import.meta.url));
 const targetDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 const sourcePath = resolve(repoRoot, "line.txt");
-const roast = readFileSync(sourcePath, "utf8").replace(/^\s+|\s+$/g, "");
+const roast = readFileSync(sourcePath, "utf8").trim();
 if (roast.length < 1 || roast.length > 200) {
   throw new Error(`roast must be 1-200 characters, got ${roast.length}`);
 }
